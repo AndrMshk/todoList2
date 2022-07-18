@@ -1,16 +1,18 @@
-import { loginAC, loginReducer, LoginReducerStateType } from '../components/login/login-reducer';
+import { v1 } from 'uuid';
 
-let startState: LoginReducerStateType
+// import { loginAC,  } from '../components/login/login-reducer';
 
-beforeEach(()=> {
-  startState ={
-    isLogin: false,
-    name: ''
-  }
-})
-
-
-test('LOGIN/SET-IS-LOGIN', ()=> {
-  const endState = loginReducer(startState, loginAC(true, 'YO'))
-  expect(endState.isLogin).toBe(true)
-})
+// let startState: LoginReducerStateType
+//
+// beforeEach(()=> {
+//   startState ={
+//     isLogin: false,
+//     name: ''
+//   }
+// })
+//
+//
+// test('LOGIN/SET-IS-LOGIN', ()=> {
+//   const endState = loginReducer(startState, loginAC(true, 'YO'))
+//   expect(endState.isLogin).toBe(true)
+// })

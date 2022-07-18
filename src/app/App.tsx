@@ -21,7 +21,7 @@ function App() {
   const status = useAppSelector(state => state.app.status);
   const isLogin = useAppSelector(state => state.login.isLogin);
   const isInitialized = useAppSelector(state => state.app.isInitialized);
-  const name = useAppSelector(state => state.login.name)
+  const name = useAppSelector(state => state.login.name);
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -62,7 +62,7 @@ function App() {
   return (
     <>
       <Box sx={{ flexGrow: 1 }}>
-        <AppBar position="relative" style={{height: '64px'}}>
+        <AppBar position="relative" style={{ height: '64px' }}>
           <Toolbar>
             <IconButton
               size="large"

@@ -10,7 +10,29 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aaf05ec1-b4c1-480d-9f5b-c6b6ff6fb748" name="Default Changelist" comment="name and loading fix" />
+    <list default="true" id="aaf05ec1-b4c1-480d-9f5b-c6b6ff6fb748" name="Default Changelist" comment="name and loading fix">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app-reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app-reducer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/store.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/common/ErrorMessage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/common/ErrorMessage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/login/Login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/login/Login.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/login/login-reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/login/login-reducer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/todolists/TodoLists.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/todolists/TodoLists.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/todolists/tasks/tasks-reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/todolists/tasks/tasks-reducer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/todolists/todoList-reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/todolists/todoList-reducer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/helpers/error-utils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/helpers/error-utils.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stories/ReduxStoreProviderDecorator.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/stories/ReduxStoreProviderDecorator.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/storiesExamples/AddItemForm.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/storiesExamples/AddItemForm.stories.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/storiesExamples/App.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/storiesExamples/App.stories.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/storiesExamples/EditableSpan.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/storiesExamples/EditableSpan.stories.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/storiesExamples/Task.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/storiesExamples/Task.stories.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/appReducer.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/appReducer.test.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/loginReducer.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/loginReducer.test.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/tasks-reducer.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/tasks-reducer.test.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/todoList-reducer.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/todoList-reducer.test.ts" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -25,6 +47,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="2915TChv1PXs4Yx6vZwPAwzKVUR" />
@@ -36,7 +63,6 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/tests" />
     <property name="node.js.detected.package.eslint" value="true" />
@@ -198,6 +224,7 @@
       <workItem from="1657826014294" duration="725000" />
       <workItem from="1658088976694" duration="43000" />
       <workItem from="1658136172173" duration="1578000" />
+      <workItem from="1658137784339" duration="19369000" />
     </task>
     <task id="LOCAL-00001" summary="thunk and action dispatch types">
       <created>1656848548221</created>
@@ -318,9 +345,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="name and loading fix" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="669" y="343" key="#ESLint" timestamp="1652267851745">
-      <screen x="62" y="0" width="1474" height="864" />
+    <state x="791" y="413" key="#ESLint" timestamp="1658137839412">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state x="791" y="413" key="#ESLint/1920.6.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1658137839412" />
     <state x="669" y="343" key="#ESLint/62.0.1474.864/-1280.0.1280.1024@62.0.1474.864" timestamp="1652267851745" />
     <state x="617" y="218" key="#Inspections" timestamp="1656100860936">
       <screen x="62" y="0" width="1858" height="1080" />
@@ -330,34 +358,34 @@
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
     <state x="770" y="295" key="FileChooserDialogImpl/1961.6.1239.720/62.0.1858.1080@62.0.1858.1080" timestamp="1656587487336" />
-    <state width="1899" height="196" key="GridCell.Tab.0.bottom" timestamp="1658137764984">
+    <state width="1899" height="196" key="GridCell.Tab.0.bottom" timestamp="1658139350001">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="196" key="GridCell.Tab.0.bottom/1920.6.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1658137764984" />
+    <state width="1899" height="196" key="GridCell.Tab.0.bottom/1920.6.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1658139350001" />
     <state width="1837" height="208" key="GridCell.Tab.0.bottom/1961.6.1239.720/62.0.1858.1080@62.0.1858.1080" timestamp="1657013961356" />
     <state width="1453" height="223" key="GridCell.Tab.0.bottom/62.0.1474.864/-1280.0.1280.1024@62.0.1474.864" timestamp="1654028686235" />
     <state width="1197" height="274" key="GridCell.Tab.0.bottom/62.0.1474.864/1982.0.1218.1024@1982.0.1218.1024" timestamp="1655748729578" />
     <state width="1197" height="274" key="GridCell.Tab.0.bottom/62.0.1474.864/1982.0.1218.1024@62.0.1474.864" timestamp="1655669402989" />
-    <state width="1899" height="196" key="GridCell.Tab.0.center" timestamp="1658137764984">
+    <state width="1899" height="196" key="GridCell.Tab.0.center" timestamp="1658139350001">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="196" key="GridCell.Tab.0.center/1920.6.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1658137764984" />
+    <state width="1899" height="196" key="GridCell.Tab.0.center/1920.6.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1658139350001" />
     <state width="1837" height="208" key="GridCell.Tab.0.center/1961.6.1239.720/62.0.1858.1080@62.0.1858.1080" timestamp="1657013961356" />
     <state width="1453" height="223" key="GridCell.Tab.0.center/62.0.1474.864/-1280.0.1280.1024@62.0.1474.864" timestamp="1654028686235" />
     <state width="1197" height="274" key="GridCell.Tab.0.center/62.0.1474.864/1982.0.1218.1024@1982.0.1218.1024" timestamp="1655748729578" />
     <state width="1197" height="274" key="GridCell.Tab.0.center/62.0.1474.864/1982.0.1218.1024@62.0.1474.864" timestamp="1655669402989" />
-    <state width="1899" height="196" key="GridCell.Tab.0.left" timestamp="1658137764984">
+    <state width="1899" height="196" key="GridCell.Tab.0.left" timestamp="1658139350000">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="196" key="GridCell.Tab.0.left/1920.6.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1658137764984" />
+    <state width="1899" height="196" key="GridCell.Tab.0.left/1920.6.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1658139350000" />
     <state width="1837" height="208" key="GridCell.Tab.0.left/1961.6.1239.720/62.0.1858.1080@62.0.1858.1080" timestamp="1657013961356" />
     <state width="1453" height="223" key="GridCell.Tab.0.left/62.0.1474.864/-1280.0.1280.1024@62.0.1474.864" timestamp="1654028686235" />
     <state width="1197" height="274" key="GridCell.Tab.0.left/62.0.1474.864/1982.0.1218.1024@1982.0.1218.1024" timestamp="1655748729578" />
     <state width="1197" height="274" key="GridCell.Tab.0.left/62.0.1474.864/1982.0.1218.1024@62.0.1474.864" timestamp="1655669402989" />
-    <state width="1899" height="196" key="GridCell.Tab.0.right" timestamp="1658137764984">
+    <state width="1899" height="196" key="GridCell.Tab.0.right" timestamp="1658139350001">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="196" key="GridCell.Tab.0.right/1920.6.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1658137764984" />
+    <state width="1899" height="196" key="GridCell.Tab.0.right/1920.6.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1658139350001" />
     <state width="1837" height="208" key="GridCell.Tab.0.right/1961.6.1239.720/62.0.1858.1080@62.0.1858.1080" timestamp="1657013961356" />
     <state width="1453" height="223" key="GridCell.Tab.0.right/62.0.1474.864/-1280.0.1280.1024@62.0.1474.864" timestamp="1654028686235" />
     <state width="1197" height="274" key="GridCell.Tab.0.right/62.0.1474.864/1982.0.1218.1024@1982.0.1218.1024" timestamp="1655748729578" />
@@ -426,10 +454,10 @@
       <screen x="1982" y="0" width="1218" height="1024" />
     </state>
     <state x="2074" y="92" width="1034" height="840" key="com.intellij.history.integration.ui.views.FileHistoryDialog/62.0.1474.864/1982.0.1218.1024@1982.0.1218.1024" timestamp="1655738269249" />
-    <state x="454" y="145" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1657643735010">
+    <state x="454" y="145" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1658150638728">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="454" y="145" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/1920.6.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1657643735010" />
+    <state x="454" y="145" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/1920.6.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1658150638728" />
     <state x="501" y="151" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/1961.6.1239.720/62.0.1858.1080@62.0.1858.1080" timestamp="1656660894537" />
     <state x="411" y="121" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/62.0.1474.864/-1280.0.1280.1024@62.0.1474.864" timestamp="1653321336621" />
     <state x="2270" y="143" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/62.0.1474.864/1982.0.1218.1024@1982.0.1218.1024" timestamp="1655722195543" />
@@ -456,5 +484,17 @@
     </state>
     <state x="462" y="181" width="672" height="678" key="search.everywhere.popup/62.0.1474.864/-1280.0.1280.1024@62.0.1474.864" timestamp="1652711666843" />
     <state x="2313" y="215" width="672" height="804" key="search.everywhere.popup/62.0.1474.864/1982.0.1218.1024@1982.0.1218.1024" timestamp="1655301991206" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/tests/appReducer.test.ts</url>
+          <line>2</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

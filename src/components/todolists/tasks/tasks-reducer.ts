@@ -1,19 +1,11 @@
-import { AddTodoListACType, RemoveTodoListACType, SetTodoListsACType } from '../todoList-reducer';
 import { AppStatusType, TasksType, TaskTypeAPI, TaskTypePriority, TaskTypeStatus } from '../../../api/TypesAPI';
 import { todoListsApi } from '../../../api/API';
-import { RootStateType, ThunkTypes } from '../../../app/store';
-import { setAppStatusAC } from '../../../app/app-reducer';
+import { RootStateType } from '../../../app/store';
+import { setAppStatus } from '../../../app/app-reducer';
 import { handleAppError, handleNetworkError } from '../../../helpers/error-utils';
 import axios from 'axios';
-
-export type TasksActionsType =
-  | ReturnType<typeof removeTaskAC>
-  | ReturnType<typeof addTaskAC>
-  | ReturnType<typeof setTasksAC>
-  | ReturnType<typeof updateTaskAC>
-  | AddTodoListACType
-  | RemoveTodoListACType
-  | SetTodoListsACType
+import { createSlice, Dispatch, PayloadAction } from '@reduxjs/toolkit';
+import { addTodoList, removeTodoList, setTodoLists } from '../todoList-reducer';
 
 export type UpdateTaskModelType = {
   title?: string
@@ -25,61 +17,54 @@ export type UpdateTaskModelType = {
   isDisabled?: boolean
 }
 
-const initialState: TasksType = {};
+const slice = createSlice({
+  name: 'tasks',
+  initialState: {} as TasksType,
+  reducers: {
+    removeTask(state, action: PayloadAction<{ todoListId: string, taskId: string }>) {
+      const tasks = state[action.payload.todoListId];
+      const index = tasks.findIndex(el => el.id === action.payload.taskId);
+      if (index !== -1) {
+        tasks.splice(index, 1);
+      }
+    },
+    addTask(state, action: PayloadAction<{ task: TaskTypeAPI }>) {
+      state[action.payload.task.todoListId].unshift(action.payload.task);
+    },
+    setTasks(state, action: PayloadAction<{ todoListId: string, tasks: TaskTypeAPI[] }>) {
+      state[action.payload.todoListId] = action.payload.tasks;
+    },
+    updateTask(state, action: PayloadAction<{ todoListId: string, taskId: string, taskModel: UpdateTaskModelType }>) {
+      const tasks = state[action.payload.todoListId];
+      const index = tasks.findIndex(el => el.id === action.payload.taskId);
+      if (index !== -1) {
+        tasks[index] = { ...tasks[index], ...action.payload.taskModel };
+      }
+    },
+  },
+  extraReducers: (builder) => {
+    builder.addCase(addTodoList, (state, action) => {
+      state[action.payload.todoList.id] = [];
+    });
+    builder.addCase(removeTodoList, (state, action) => {
+      delete state[action.payload.todoListId];
+    });
+    builder.addCase(setTodoLists, (state, action) => {
+      action.payload.todoLists.forEach(el => state[el.id] = []);
+    });
+  },
+});
 
-export const tasksReducer = (state: TasksType = initialState, action: TasksActionsType): TasksType => {
-  switch (action.type) {
-    case 'TASK/DELETE-TASK':
-      return {
-        ...state,
-        [action.todoListId]: state[action.todoListId].filter(el => el.id !== action.taskId),
-      };
-    case 'TASK/ADD-TASK':
-      return {
-        ...state,
-        [action.task.todoListId]: [{ ...action.task, isDisabled: false }, ...state[action.task.todoListId]],
-      };
-    case 'TASK/UPDATE-TASK':
-      return {
-        ...state,
-        [action.todoListId]: state[action.todoListId].map(el => el.id === action.taskId
-          ? { ...el, ...action.taskModel }
-          : el),
-      };
-    case 'TODOLIST/ADD-TODOLIST':
-      return { ...state, [action.todoList.id]: [] };
-    case 'TODOLIST/REMOVE-TODOLIST': {
-      const copyState = { ...state };
-      delete copyState[action.todoListId];
-      return copyState;
-    }
-    case 'TODOLIST/SET-TODOLISTS': {
-      const copyState = { ...state };
-      action.payload.forEach(el => {copyState[el.id] = [];});
-      return copyState;
-    }
-    case 'TASK/SET-TASKS':
-      return { ...state, [action.todoListId]: action.tasks };
+export const tasksReducer = slice.reducer;
+export const { removeTask, addTask, setTasks, updateTask } = slice.actions;
 
-    default:
-      return state;
-  }
-};
-
-export const removeTaskAC = (todoListId: string, taskId: string) => (
-  { type: 'TASK/DELETE-TASK', todoListId, taskId } as const);
-export const addTaskAC = (task: TaskTypeAPI) => ({ type: 'TASK/ADD-TASK', task } as const);
-export const setTasksAC = (todoListId: string, tasks: any) => ({ type: 'TASK/SET-TASKS', todoListId, tasks } as const);
-export const updateTaskAC = (todoListId: string, taskId: string, taskModel: UpdateTaskModelType) => (
-  { type: 'TASK/UPDATE-TASK', todoListId, taskId, taskModel } as const);
-
-export const setTasksTC = (todoListId: string): ThunkTypes => (
-  async(dispatch) => {
-    dispatch(setAppStatusAC(AppStatusType.loading));
+export const setTasksTC = (todoListId: string) => (
+  async(dispatch: Dispatch) => {
+    dispatch(setAppStatus({ status: AppStatusType.loading }));
     try {
       const res = await todoListsApi.getTasks(todoListId);
-      dispatch(setTasksAC(todoListId, res.data.items));
-      dispatch(setAppStatusAC(AppStatusType.succeeded));
+      dispatch(setTasks({ todoListId, tasks: res.data.items }));
+      dispatch(setAppStatus({ status: AppStatusType.succeeded }));
     } catch (err) {
       if (axios.isAxiosError(err)) {
         handleNetworkError(err.message, dispatch);
@@ -87,15 +72,15 @@ export const setTasksTC = (todoListId: string): ThunkTypes => (
     }
   }
 );
-export const removeTaskTC = (todoListId: string, taskId: string): ThunkTypes => (
-  async(dispatch) => {
-    dispatch(updateTaskAC(todoListId, taskId, { isDisabled: true }));
-    dispatch(setAppStatusAC(AppStatusType.loading));
+export const removeTaskTC = (todoListId: string, taskId: string) => (
+  async(dispatch: Dispatch) => {
+    dispatch(updateTask({ todoListId, taskId, taskModel: { isDisabled: true } }));
+    dispatch(setAppStatus({ status: AppStatusType.loading }));
     try {
       const res = await todoListsApi.deleteTask(todoListId, taskId);
       if (res.data.resultCode === 0) {
-        dispatch(removeTaskAC(todoListId, taskId));
-        dispatch(setAppStatusAC(AppStatusType.succeeded));
+        dispatch(removeTask({ todoListId, taskId }));
+        dispatch(setAppStatus({ status: AppStatusType.succeeded }));
       } else {
         handleAppError(res.data, dispatch);
       }
@@ -104,17 +89,17 @@ export const removeTaskTC = (todoListId: string, taskId: string): ThunkTypes => 
         handleNetworkError(err?.message, dispatch);
       }
     }
-    dispatch(updateTaskAC(todoListId, taskId, { isDisabled: false }));
+    dispatch(updateTask({ todoListId, taskId, taskModel: { isDisabled: false } }));
   }
 );
-export const addTaskTC = (todoListId: string, title: string): ThunkTypes => (
-  async(dispatch) => {
-    dispatch(setAppStatusAC(AppStatusType.loading));
+export const addTaskTC = (todoListId: string, title: string) => (
+  async(dispatch: Dispatch) => {
+    dispatch(setAppStatus({ status: AppStatusType.loading }));
     try {
       const res = await todoListsApi.postTask(todoListId, { title });
       if (res.data.resultCode === 0) {
-        dispatch(addTaskAC(res.data.data.item));
-        dispatch(setAppStatusAC(AppStatusType.succeeded));
+        dispatch(addTask({ task: res.data.data.item }));
+        dispatch(setAppStatus({ status: AppStatusType.succeeded }));
       } else {
         handleAppError(res.data, dispatch);
       }
@@ -125,17 +110,17 @@ export const addTaskTC = (todoListId: string, title: string): ThunkTypes => (
     }
   }
 );
-export const updateTaskTC = (todoListId: string, taskId: string, taskModel: UpdateTaskModelType): ThunkTypes => (
-  (async(dispatch, getState: () => RootStateType) => {
-    dispatch(updateTaskAC(todoListId, taskId, { isDisabled: true }));
-    dispatch(setAppStatusAC(AppStatusType.loading));
+export const updateTaskTC = (todoListId: string, taskId: string, taskModel: UpdateTaskModelType) => (
+  (async(dispatch: Dispatch, getState: () => RootStateType) => {
+    dispatch(updateTask({ todoListId, taskId, taskModel: { isDisabled: true } }));
+    dispatch(setAppStatus({ status: AppStatusType.loading }));
     const task = getState().tasks[todoListId].find(el => el.id === taskId);
     if (task) {
       try {
         const res = await todoListsApi.updateTask(todoListId, taskId, { ...task, ...taskModel });
         if (res.data.resultCode === 0) {
-          dispatch(updateTaskAC(todoListId, taskId, taskModel));
-          dispatch(setAppStatusAC(AppStatusType.succeeded));
+          dispatch(updateTask({ todoListId, taskId, taskModel }));
+          dispatch(setAppStatus({ status: AppStatusType.succeeded }));
         } else {
           handleAppError(res.data, dispatch);
         }
@@ -145,7 +130,7 @@ export const updateTaskTC = (todoListId: string, taskId: string, taskModel: Upda
         }
       }
     }
-    dispatch(updateTaskAC(todoListId, taskId, { isDisabled: false }));
+    dispatch(updateTask({ todoListId, taskId, taskModel: { isDisabled: false } }));
   })
 );
 

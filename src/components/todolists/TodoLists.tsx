@@ -1,13 +1,7 @@
 import React, { useCallback, useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '../../app/store';
 import { FilterValuesType } from '../../api/TypesAPI';
-import {
-  addTodoListTC,
-  removeTodoListTC,
-  setTodoListsTC,
-  updateTodoListAC,
-  updateTodoListTC,
-} from './todoList-reducer';
+import { addTodoListTC, removeTodoListTC, setTodoListsTC, updateTodoList, updateTodoListTC } from './todoList-reducer';
 import { Grid, Paper } from '@mui/material';
 import { AddItemForm } from '../common/AddItemForm';
 import { Tasks } from './tasks/Tasks';
@@ -33,7 +27,7 @@ export const TodoLists: React.FC = () => {
 
   const changeFilterHandler = useCallback(
     (todoListId: string, filter: FilterValuesType) =>
-      dispatch(updateTodoListAC(todoListId, { filter })), []);
+      dispatch(updateTodoList({ todoListId, todoListModel: { filter } })), []);
 
   const changeTodoListTitleHandler = useCallback(
     (todoListId: string, title: string) => {
